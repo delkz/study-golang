@@ -1,0 +1,26 @@
+# Binários e artefatos de build do Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Saídas locais de build, cobertura e profiling
+/bin/
+/dist/
+coverage.out
+*.coverprofile
+*.prof
+
+# Arquivos locais de ambiente
+.env
+.env.*
+!.env.example
+
+# Editores e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

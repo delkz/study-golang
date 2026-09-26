@@ -1,0 +1,4 @@
+interface:
+  display_name: "Go Learning Mentor"
+  short_description: "Mentoria prática e progressiva de Go"
+  default_prompt: "Use $go-learning-mentor para conduzir a próxima etapa do meu aprendizado prático de Go neste repositório."
