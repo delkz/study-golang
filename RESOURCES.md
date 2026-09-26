@@ -35,3 +35,10 @@ Esse material sobre slices foi adiado para uma lição futura após a revisão d
 - [Short variable declarations — Go specification](https://go.dev/ref/spec#Short_variable_declarations) — regras de `:=` dentro de funções.
 - [Variables with initializers — A Tour of Go](https://go.dev/tour/basics/9) — declaração com `var` e inferência por inicializador.
 - [Type inference — A Tour of Go](https://go.dev/tour/basics/14) — inferência de tipos em declarações locais.
+
+### Lição 2 — booleanos e condicionais — 2026-09-26
+
+- [Operators — Go specification](https://go.dev/ref/spec#Operators) — operadores e sua precedência.
+- [Comparison operators — Go specification](https://go.dev/ref/spec#Comparison_operators) — comparações que produzem valores booleanos.
+- [Logical operators — Go specification](https://go.dev/ref/spec#Logical_operators) — comportamento de `&&`, `||` e `!`.
+- [If statements — Go specification](https://go.dev/ref/spec#If_statements) — execução condicional com `if` e `else`.

@@ -9,8 +9,8 @@ Desenvolver domínio prático de Go, do básico ao avançado, suficiente para pr
 ## Situação atual
 
 - Etapa: fundamentos iniciais.
-- Exercício atual: Lição 1 concluída; próxima lição ainda não iniciada.
-- Evidências registradas: implementou e validou funções com parâmetros, variáveis locais, inferência, atribuição, expressões e retorno; explicou os conceitos no checkpoint.
+- Exercício atual: Lição 2 concluída; próxima lição ainda não iniciada.
+- Evidências registradas: implementou e validou funções com parâmetros, retornos, comparações, valores booleanos, operadores lógicos e fluxo condicional; explicou os conceitos nos checkpoints.
 - Restrições pedagógicas: a implementação principal deve ser escrita pelo estudante.
 
 O estado de uma competência representa a evidência disponível no momento, não uma classificação permanente. Uma competência pode voltar para `revisar` quando surgirem lacunas ou quando não houver retenção em uma aplicação posterior.
@@ -19,7 +19,7 @@ O estado de uma competência representa a evidência disponível no momento, nã
 
 | Área | Estado | Evidência |
 | --- | --- | --- |
-| Fundamentos e modelo da linguagem | em prática | Implementou três funções tipadas; testes, formatação e `go vet` passaram; explicou parâmetros, retorno, `:=`, `=` e valor zero. |
+| Fundamentos e modelo da linguagem | em prática | Implementou funções tipadas em dois contextos; testes, formatação e `go vet` passaram; explicou parâmetros, retorno, variáveis, comparações, operadores lógicos e condicionais. |
 | Módulos, pacotes e organização | não avaliado | — |
 | Tratamento de erros | não avaliado | — |
 | Testes | não avaliado | — |
@@ -35,7 +35,7 @@ Estados permitidos: `não avaliado`, `apresentado`, `em prática`, `demonstrado`
 
 ## Próximo passo recomendado
 
-Praticar funções e variáveis em uma pequena variação que introduza `bool` e condicionais sem misturar ainda loops, slices, structs ou erros. Retomar `scorestats.Analyze` somente depois desses fundamentos.
+Introduzir repetição com `for` em uma atividade curta que reutilize funções, variáveis e condicionais. Adiar slices, structs e erros até que o fluxo básico esteja firme.
 
 ## Histórico de sessões
 
@@ -69,3 +69,17 @@ Praticar funções e variáveis em uma pequena variação que introduza `bool` e
 - O checkpoint confirmou entendimento de parâmetros e argumentos, tipo de retorno, declaração com `:=`, atribuição com `=` e valor zero.
 - Fundamentos passaram para `em prática`; ainda falta demonstrar transferência em outro exercício.
 - Próxima ação: introduzir expressões booleanas e condicionais em uma atividade curta.
+
+### 2026-09-26 — Lição 2 preparada
+
+- Preparada uma atividade incremental sobre `bool`, comparações, operadores lógicos e `if`.
+- A atividade reutiliza funções, parâmetros e retornos sem introduzir outros conceitos estruturais.
+- Próxima ação: implementar `IsAdult`, `Larger` e `CanAccess` e responder ao checkpoint.
+
+### 2026-09-26 — Lição 2 concluída
+
+- Implementadas `IsAdult`, `Larger` e `CanAccess` com comparação direta, `if` e `&&`.
+- Todos os testes passaram; `gofmt` e `go vet` não apontaram problemas.
+- O checkpoint confirmou entendimento do limite inclusivo, retorno booleano, diferença entre `&&` e `||` e fluxo após `return`.
+- Fundamentos permanecem `em prática` até nova transferência; nenhuma competência foi marcada como demonstrada prematuramente.
+- Próxima ação: introduzir repetição com `for` sem adicionar estruturas de dados novas.
