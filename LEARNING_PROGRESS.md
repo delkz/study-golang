@@ -8,8 +8,8 @@ Desenvolver domínio prático de Go, do básico ao avançado, suficiente para pr
 
 ## Situação atual
 
-- Etapa: diagnóstico inicial.
-- Exercício atual: ainda não definido.
+- Etapa: diagnóstico inicial em andamento.
+- Exercício atual: `diagnostic/README.md` e implementação de `scorestats.Analyze`.
 - Evidências registradas: nenhuma avaliação prática realizada neste repositório.
 - Restrições pedagógicas: a implementação principal deve ser escrita pelo estudante.
 
@@ -35,7 +35,7 @@ Estados permitidos: `não avaliado`, `apresentado`, `em prática`, `demonstrado`
 
 ## Próximo passo recomendado
 
-Realizar um diagnóstico curto que combine perguntas de modelo mental com uma pequena tarefa prática. A partir das evidências, escolher o primeiro exercício sem repetir conhecimentos já demonstrados nem presumir familiaridade com particularidades idiomáticas de Go.
+Preencher `diagnostic/RESPONSES.md`, implementar `scorestats.Analyze` e executar os comandos de validação descritos no diagnóstico. Em seguida, revisar as evidências e ajustar ou liberar a primeira lição preparada em `lessons/01-go-foundations/README.md`.
 
 ## Histórico de sessões
 
@@ -45,3 +45,11 @@ Realizar um diagnóstico curto que combine perguntas de modelo mental com uma pe
 - Criados o acompanhamento persistente, o catálogo de fontes e a documentação inicial do repositório.
 - Nenhuma competência técnica de Go foi avaliada nesta preparação.
 - Próxima ação: realizar o diagnóstico inicial.
+
+### 2026-09-26 — diagnóstico e primeira lição preparados
+
+- Criado um diagnóstico com perguntas de modelo mental, leitura de código e implementação curta.
+- Adicionados testes que especificam o comportamento esperado sem implementar a solução.
+- Preparada uma primeira lição sobre módulos, pacotes, slices, erros e testes.
+- Nenhuma competência foi reclassificada: a avaliação depende da tentativa do estudante.
+- Próxima ação: concluir e enviar o diagnóstico para revisão.

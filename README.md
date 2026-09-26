@@ -55,7 +55,10 @@ Os estados usados no acompanhamento são `não avaliado`, `apresentado`, `em pr�
 ```text
 .
 ├── .agents/skills/go-learning-mentor/  # Skill local da mentoria
+├── diagnostic/                         # Diagnóstico inicial e testes
+├── lessons/                            # Lições liberadas conforme evidências
 ├── AGENTS.md                           # Regras pedagógicas obrigatórias
+├── go.mod                              # Identidade do módulo Go
 ├── LEARNING_PROGRESS.md                # Estado e evidências entre sessões
 ├── RESOURCES.md                        # Fontes realmente utilizadas
 └── README.md                           # Visão geral do projeto
