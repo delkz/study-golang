@@ -9,8 +9,8 @@ Desenvolver domínio prático de Go, do básico ao avançado, suficiente para pr
 ## Situação atual
 
 - Etapa: fundamentos iniciais.
-- Exercício atual: Lição 1, funções, parâmetros e variáveis.
-- Evidências registradas: o diagnóstico mostrou familiaridade geral com compilação e tipagem, mas nenhuma experiência prática suficiente para implementar uma função Go com controle de fluxo, slices e erros.
+- Exercício atual: Lição 1 concluída; próxima lição ainda não iniciada.
+- Evidências registradas: implementou e validou funções com parâmetros, variáveis locais, inferência, atribuição, expressões e retorno; explicou os conceitos no checkpoint.
 - Restrições pedagógicas: a implementação principal deve ser escrita pelo estudante.
 
 O estado de uma competência representa a evidência disponível no momento, não uma classificação permanente. Uma competência pode voltar para `revisar` quando surgirem lacunas ou quando não houver retenção em uma aplicação posterior.
@@ -19,7 +19,7 @@ O estado de uma competência representa a evidência disponível no momento, nã
 
 | Área | Estado | Evidência |
 | --- | --- | --- |
-| Fundamentos e modelo da linguagem | não avaliado | — |
+| Fundamentos e modelo da linguagem | em prática | Implementou três funções tipadas; testes, formatação e `go vet` passaram; explicou parâmetros, retorno, `:=`, `=` e valor zero. |
 | Módulos, pacotes e organização | não avaliado | — |
 | Tratamento de erros | não avaliado | — |
 | Testes | não avaliado | — |
@@ -35,7 +35,7 @@ Estados permitidos: `não avaliado`, `apresentado`, `em prática`, `demonstrado`
 
 ## Próximo passo recomendado
 
-Concluir a Lição 1 em `lessons/01-go-foundations/README.md`, implementar as três funções básicas e responder ao checkpoint. Retomar `scorestats.Analyze` somente depois de estudar condicionais, loops, slices, structs e erros.
+Praticar funções e variáveis em uma pequena variação que introduza `bool` e condicionais sem misturar ainda loops, slices, structs ou erros. Retomar `scorestats.Analyze` somente depois desses fundamentos.
 
 ## Histórico de sessões
 
@@ -61,3 +61,11 @@ Concluir a Lição 1 em `lessons/01-go-foundations/README.md`, implementar as tr
 - A Lição 1 foi reduzida a funções, parâmetros, variáveis locais, expressões e retorno.
 - Nenhuma competência foi marcada como demonstrada.
 - Próxima ação: implementar as funções básicas da Lição 1.
+
+### 2026-09-26 — Lição 1 concluída
+
+- Implementadas `Sum`, `Greeting` e `RectangleArea` com parâmetros e retornos tipados.
+- `go test`, `gofmt` e `go vet` foram executados sem problemas.
+- O checkpoint confirmou entendimento de parâmetros e argumentos, tipo de retorno, declaração com `:=`, atribuição com `=` e valor zero.
+- Fundamentos passaram para `em prática`; ainda falta demonstrar transferência em outro exercício.
+- Próxima ação: introduzir expressões booleanas e condicionais em uma atividade curta.

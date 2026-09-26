@@ -1,6 +1,6 @@
 # Lição 1 — funções, parâmetros e variáveis
 
-Status: liberada.
+Status: concluída.
 
 ## Objetivo
 
@@ -123,9 +123,13 @@ go vet ./lessons/01-go-foundations/basics
 Depois de concluir, responda com suas palavras:
 
 1. Qual é a diferença entre um parâmetro e o valor enviado na chamada?
+R: Não entendi a pergunta, mas parametro é a variavel que vai receber o valor enviado na chamada da função, ex Sum(left int, right int) left e right são os parametros Sum(1,2), 1 e 2 são os valores
 2. O que o `int` depois dos parênteses representa?
+R: O tipo do retorno da função 
 3. Qual é a diferença entre `:=` e `=`?
+R: := Cria a variavel e já atribui um tipo com base no valor inicial, = atribui algum valor a uma variavel
 4. O que acontece com `var count int` quando nenhum valor inicial é informado?
+R: começa com o valor inicial do seu tipo, no caso 0
 
 ## Fontes primárias
 
