@@ -8,9 +8,9 @@ Desenvolver domínio prático de Go, do básico ao avançado, suficiente para pr
 
 ## Situação atual
 
-- Etapa: diagnóstico inicial em andamento.
-- Exercício atual: `diagnostic/README.md` e implementação de `scorestats.Analyze`.
-- Evidências registradas: nenhuma avaliação prática realizada neste repositório.
+- Etapa: fundamentos iniciais.
+- Exercício atual: Lição 1, funções, parâmetros e variáveis.
+- Evidências registradas: o diagnóstico mostrou familiaridade geral com compilação e tipagem, mas nenhuma experiência prática suficiente para implementar uma função Go com controle de fluxo, slices e erros.
 - Restrições pedagógicas: a implementação principal deve ser escrita pelo estudante.
 
 O estado de uma competência representa a evidência disponível no momento, não uma classificação permanente. Uma competência pode voltar para `revisar` quando surgirem lacunas ou quando não houver retenção em uma aplicação posterior.
@@ -35,7 +35,7 @@ Estados permitidos: `não avaliado`, `apresentado`, `em prática`, `demonstrado`
 
 ## Próximo passo recomendado
 
-Preencher `diagnostic/RESPONSES.md`, implementar `scorestats.Analyze` e executar os comandos de validação descritos no diagnóstico. Em seguida, revisar as evidências e ajustar ou liberar a primeira lição preparada em `lessons/01-go-foundations/README.md`.
+Concluir a Lição 1 em `lessons/01-go-foundations/README.md`, implementar as três funções básicas e responder ao checkpoint. Retomar `scorestats.Analyze` somente depois de estudar condicionais, loops, slices, structs e erros.
 
 ## Histórico de sessões
 
@@ -53,3 +53,11 @@ Preencher `diagnostic/RESPONSES.md`, implementar `scorestats.Analyze` e executar
 - Preparada uma primeira lição sobre módulos, pacotes, slices, erros e testes.
 - Nenhuma competência foi reclassificada: a avaliação depende da tentativa do estudante.
 - Próxima ação: concluir e enviar o diagnóstico para revisão.
+
+### 2026-09-26 — ponto de partida ajustado
+
+- As respostas conceituais e a dificuldade de iniciar `scorestats.Analyze` mostraram que o diagnóstico prático reunia conceitos demais para o ponto de partida.
+- A implementação de `Analyze` foi adiada; o arquivo permanece como desafio futuro, sem contar como pendência da primeira lição.
+- A Lição 1 foi reduzida a funções, parâmetros, variáveis locais, expressões e retorno.
+- Nenhuma competência foi marcada como demonstrada.
+- Próxima ação: implementar as funções básicas da Lição 1.

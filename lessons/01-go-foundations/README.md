@@ -1,82 +1,135 @@
-# Lição 1 — do módulo ao feedback dos testes
+# Lição 1 — funções, parâmetros e variáveis
 
-Status: preparada, aguardando revisão do diagnóstico.
+Status: liberada.
 
-Esta lição será ajustada caso o diagnóstico mostre que o conteúdo está abaixo ou acima do seu ponto de partida. Não a use antes de registrar as respostas e a primeira tentativa do diagnóstico.
+## Objetivo
 
-## Resultado esperado
+Ao final desta lição, você deverá conseguir:
 
-Ao final, você deverá conseguir explicar como módulo, pacote e arquivo se relacionam; ler uma assinatura com múltiplos retornos; raciocinar sobre valores e slices; tratar uma falha como valor; e usar testes para orientar uma implementação pequena.
+- reconhecer as partes de uma função em Go;
+- receber valores por parâmetros;
+- declarar e atribuir variáveis locais;
+- entender inferência de tipo com `:=`;
+- retornar um valor;
+- chamar funções por meio de testes prontos.
 
-## 1. Módulo, pacote e arquivo
+Nesta etapa não usaremos slices, loops, structs nem tratamento de erros. Esses assuntos voltarão quando a base necessária estiver firme.
 
-Um módulo é a unidade identificada pelo `go.mod`: ele declara o caminho do módulo e registra informações necessárias ao gerenciamento de dependências. Um módulo pode conter vários pacotes.
+## 1. Estrutura de uma função
 
-Um pacote reúne arquivos Go do mesmo diretório que usam o mesmo nome de pacote e são compilados juntos. Um arquivo é apenas uma parte física desse pacote; ele não equivale a um módulo JavaScript.
+Observe este exemplo isolado:
 
-Comparação útil com Node.js:
-
-- `go.mod` tem parte do papel de identidade e dependências exercido por `package.json`;
-- um pacote Go é uma unidade de compilação e organização, não um arquivo importável isolado;
-- a analogia termina aí: resolução, visibilidade e inicialização seguem regras próprias de Go.
-
-No diagnóstico, `github.com/delkz/study-golang` é o módulo e `diagnostic/scorestats` é um pacote dentro dele.
-
-## 2. Valores, cópia e slices
-
-Uma atribuição comum em Go copia o valor atribuído. Isso não significa que todo dado subjacente seja profundamente copiado.
-
-Uma slice é um pequeno descritor que referencia uma região de um array subjacente. Copiar uma slice copia esse descritor; duas slices podem, portanto, observar o mesmo armazenamento. `append` pode reutilizar esse armazenamento ou alocar outro, dependendo da capacidade disponível. É por isso que código com slices deve ser analisado em termos de comprimento, capacidade e compartilhamento do array subjacente.
-
-Comparação com TypeScript: existe uma semelhança superficial com duas variáveis apontando para o mesmo array, mas slices possuem comprimento e capacidade próprios e `append` pode mudar a região de armazenamento usada por apenas uma delas.
-
-## 3. Múltiplos retornos e erros como valores
-
-Go permite que uma função retorne mais de um valor. É comum que o último seja um `error`:
-
-```text
-resultado, err := operação()
+```go
+func Double(value int) int {
+	result := value * 2
+	return result
+}
 ```
 
-`error` participa do fluxo como qualquer outro valor. Quem chama a função decide se deve retornar o erro, acrescentar contexto, tentar outra estratégia ou convertê-lo em uma resposta externa. Isso difere de uma exceção lançada, que transfere o controle implicitamente até algum ponto de captura.
+Leia a primeira linha da esquerda para a direita:
 
-No diagnóstico, `Analyze` devolve `Summary` e `error`. O contrato determina que uma falha deve vir acompanhada do valor zero de `Summary`, evitando que um resultado parcial pareça válido.
+- `func` declara uma função;
+- `Double` é o nome da função;
+- `value` é o nome do parâmetro recebido;
+- `int` dentro dos parênteses é o tipo do parâmetro;
+- o último `int` é o tipo do valor devolvido.
 
-## 4. Testes como contrato executável
+O corpo da função fica entre `{` e `}`. Como a assinatura promete devolver um `int`, o fluxo normal da função precisa terminar devolvendo um inteiro com `return`.
 
-Arquivos terminados em `_test.go` são reconhecidos pelo comando `go test`. As funções de teste exercitam comportamento observável: entradas, saídas, erros e efeitos colaterais.
+Em TypeScript, uma assinatura semelhante seria `function double(value: number): number`. A diferença importante é que `int` é um tipo inteiro específico de Go; ele não representa todos os números como o tipo `number` do JavaScript.
 
-Os testes fornecidos verificam:
+## 2. Parâmetros são variáveis locais
 
-- casos comuns e valores de fronteira;
-- divisão decimal no cálculo da média;
-- rejeição de entradas vazias ou inválidas;
-- retorno do valor zero quando ocorre erro;
-- preservação da slice recebida.
+Quando alguém chama `Double(5)`, o valor `5` é associado ao parâmetro local `value`. A função usa esse valor durante sua execução.
 
-Leia uma falha de teste como evidência específica sobre o contrato, não como instrução para inserir valores especiais que façam apenas aquele caso passar.
+Uma função pode receber mais de um parâmetro:
 
-## Prática guiada
+```go
+func Subtract(left int, right int) int {
+	return left - right
+}
+```
 
-1. Explique por que `Summary{}` representa o valor zero dessa struct.
-2. Explique por que inicializar mínimo e máximo com `0` pode produzir um algoritmo frágil em outros domínios, mesmo que notas válidas incluam `0`.
-3. Implemente `Analyze` sem alterar os testes.
-4. Execute `go test ./diagnostic/scorestats -v` após cada mudança pequena.
-5. Quando os testes passarem, execute `go fmt ./...` e `go vet ./...`.
-6. Explique a complexidade de tempo e de memória adicional da solução.
+Cada chamada recebe seus próprios valores. `Subtract(10, 3)` e `Subtract(8, 2)` executam o mesmo comportamento com entradas diferentes.
+
+## 3. Declarando variáveis
+
+Dentro de uma função, estas formas são válidas:
+
+```go
+var count int
+var name string = "David"
+message := "Olá"
+```
+
+- `var count int` cria um `int` sem valor explícito; ele começa com o valor zero de seu tipo, que é `0`.
+- `var name string = "David"` informa o tipo e o valor inicial.
+- `message := "Olá"` pede que Go infira o tipo a partir do valor; nesse caso, `string`.
+
+`:=` declara uma variável nova e só pode ser usado dentro de funções. Depois que ela existe, uma nova atribuição usa apenas `=`:
+
+```go
+message := "Olá"
+message = "Bem-vindo"
+```
+
+Go não permite declarar uma variável local e simplesmente nunca usá-la. Essa regra ajuda a manter o código livre de sobras acidentais.
+
+## 4. Expressões e retorno
+
+Uma expressão produz um valor. Alguns exemplos:
+
+```go
+left + right
+width * height
+"Olá, " + name
+```
+
+Você pode guardar o resultado em uma variável e retorná-la, como no exemplo `Double`, ou retornar diretamente. Nesta lição, prefira criar uma variável local antes do `return`; isso deixa visível o ciclo receber → calcular → devolver que estamos praticando.
+
+## Exercício
+
+O arquivo [basics.go](basics/basics.go) contém três funções incompletas:
+
+1. `Sum`: recebe dois inteiros e devolve a soma.
+2. `Greeting`: recebe um nome e devolve `"Olá, "` seguido do nome.
+3. `RectangleArea`: recebe largura e altura e devolve a área.
+
+Para cada função:
+
+1. remova o `panic`;
+2. crie uma variável local com `:=` para guardar o resultado;
+3. devolva essa variável com `return`.
+
+Não altere nomes, parâmetros, tipos ou testes.
+
+## Executando
+
+Na raiz do repositório:
+
+```powershell
+go test ./lessons/01-go-foundations/basics -v
+```
+
+No início, o primeiro teste falhará por causa do `panic` intencional. Trabalhe em uma função por vez e execute novamente. Quando todos passarem:
+
+```powershell
+go fmt ./lessons/01-go-foundations/basics
+go vet ./lessons/01-go-foundations/basics
+```
 
 ## Checkpoint
 
-Ao concluir, responda:
+Depois de concluir, responda com suas palavras:
 
-- O que é copiado quando uma slice é atribuída a outra variável?
-- Por que `float64(total / count)` não corrige uma divisão inteira já realizada?
-- Quem é responsável por decidir o que fazer com o `error` retornado por `Analyze`?
-- O que os testes provaram e o que eles ainda não provam sobre a implementação?
+1. Qual é a diferença entre um parâmetro e o valor enviado na chamada?
+2. O que o `int` depois dos parênteses representa?
+3. Qual é a diferença entre `:=` e `=`?
+4. O que acontece com `var count int` quando nenhum valor inicial é informado?
 
 ## Fontes primárias
 
-- [Go Modules Reference](https://go.dev/ref/mod)
-- [The Go Programming Language Specification](https://go.dev/ref/spec)
-- [Add a test](https://go.dev/doc/tutorial/add-a-test)
-- [Errors are values](https://go.dev/blog/errors-are-values)
+- [Function declarations — Go specification](https://go.dev/ref/spec#Function_declarations)
+- [Short variable declarations — Go specification](https://go.dev/ref/spec#Short_variable_declarations)
+- [Variables with initializers — A Tour of Go](https://go.dev/tour/basics/9)
+- [Type inference — A Tour of Go](https://go.dev/tour/basics/14)

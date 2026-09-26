@@ -47,6 +47,8 @@ Depois de registrar sua previsão, você pode executar uma cópia do trecho para
 
 Implemente `Analyze` em [scorestats/scorestats.go](scorestats/scorestats.go).
 
+Se ainda não souber como iniciar, não pesquise uma solução: deixe o scaffolding intacto e registre essa dificuldade ao entregar. A ausência de implementação também é uma evidência válida para escolher o ponto de partida.
+
 ### Cenário
 
 Um serviço recebe notas inteiras de `0` a `100` e precisa produzir um resumo para outra camada da aplicação.

@@ -19,3 +19,19 @@ Essas fontes sustentam apenas a preparação descrita no `README.md`; ainda não
 - [Errors are values](https://go.dev/blog/errors-are-values) — modelo de erros como valores programáveis.
 
 As fontes sustentam o material preparado. O estado das competências só será atualizado depois da prática e da revisão.
+
+### Lição 1 adaptada — 2026-09-26
+
+- [Slice types — Go specification](https://go.dev/ref/spec#Slice_types) — definição de slice, comprimento, capacidade e armazenamento compartilhado.
+- [Appending to and copying slices — Go specification](https://go.dev/ref/spec#Appending_and_copying_slices) — comportamento normativo de `append` e `copy`.
+- [Go slices: usage and internals](https://go.dev/blog/slices-intro) — modelo visual do descritor e do array subjacente.
+- [Package builtin](https://pkg.go.dev/builtin) — contratos das funções predefinidas usadas na prática.
+
+Esse material sobre slices foi adiado para uma lição futura após a revisão do ponto de partida.
+
+### Lição 1 — fundamentos de funções e variáveis — 2026-09-26
+
+- [Function declarations — Go specification](https://go.dev/ref/spec#Function_declarations) — estrutura de assinaturas, parâmetros, resultados e corpo.
+- [Short variable declarations — Go specification](https://go.dev/ref/spec#Short_variable_declarations) — regras de `:=` dentro de funções.
+- [Variables with initializers — A Tour of Go](https://go.dev/tour/basics/9) — declaração com `var` e inferência por inicializador.
+- [Type inference — A Tour of Go](https://go.dev/tour/basics/14) — inferência de tipos em declarações locais.
